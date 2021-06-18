@@ -16,7 +16,8 @@ Class {
 	#name : #OPPragmaPluginMenuBuilder,
 	#superclass : #PragmaMenuBuilder,
 	#instVars : [
-		'testBlock'
+		'testBlock',
+		'pragmaCollector'
 	],
 	#category : #'OpenPonk-Spec-Utils'
 }
@@ -57,6 +58,19 @@ OPPragmaPluginMenuBuilder >> hasCorrectArguments: aPragma [
 OPPragmaPluginMenuBuilder >> model: anObject [
 	super model: anObject.
 	testBlock := self testBlockFor: anObject
+]
+
+{ #category : #accessing }
+OPPragmaPluginMenuBuilder >> pragmaCollector [
+
+	^ pragmaCollector
+]
+
+{ #category : #accessing }
+OPPragmaPluginMenuBuilder >> pragmaCollector: aCollector [
+	self assert: [ pragmaCollector isNil ] description: 'Pragma Collector cannot be changed.'.
+	pragmaCollector := aCollector.
+"	pragmaCollector whenChangedSend: #reset to: self"
 ]
 
 { #category : #accessing }
