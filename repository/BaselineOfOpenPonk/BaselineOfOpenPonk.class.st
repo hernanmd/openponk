@@ -46,18 +46,18 @@ BaselineOfOpenPonk >> baseline: spec [
 		do: [ self externalProjectsBaseline: spec.
 			self internalProjectsBaseline: spec.
 			spec
-				package: 'OpenPonk-Core' with: [ spec requires: #('Magritte' 'Mocketry' 'Roassal2' 'XMLParser' 'XPath' 'NeoJSON') ];
+				package: 'OpenPonk-Core' with: [ spec requires: #('Magritte' 'Mocketry' 'Roassal2' 'XMLParser' 'XPath' 'NeoJSON' 'Merlin' ) ];
 				package: 'OpenPonk-Perf';
 				package: 'OpenPonk-Trachel';
 				package: 'OpenPonk-Roassal2';
 				package: 'OpenPonk-Morphic';
 				"package: 'OpenPonk-Telemetry' with: [ spec requires: #('Sentry') ];"
 				package: 'OpenPonk-Help';
-				package: 'OpenPonk-Spec' with: [ spec requires: #('Moose' 'FileDialog' 'Magritte' 'SynchronizedLinks' 'OpenPonk-Morphic')	" 'Commander'" ];
+				package: 'OpenPonk-Spec' with: [ spec requires: #('FileDialog' 'Magritte' 'SynchronizedLinks' 'OpenPonk-Morphic')	" 'Commander'" ];
 				package: 'OpenPonk-Plugins' with: [ spec postLoadDoIt: #loadPlugins ].
 			spec
 				group: 'default'
-				with: 	#('OpenPonk-Core' 'OpenPonk-Perf' 'OpenPonk-Trachel' 'OpenPonk-Roassal2' 'OpenPonk-Morphic' 'OpenPonk-Spec' 'OpenPonk-Help' 'Merlin').	"'OpenPonk-Telemetry'"
+				with: 	#('OpenPonk-Core' 'OpenPonk-Perf' 'OpenPonk-Trachel' 'OpenPonk-Roassal2' 'OpenPonk-Morphic' 'OpenPonk-Spec' 'OpenPonk-Help').	"'OpenPonk-Telemetry'"
 			spec 
 				group: 'complete' 
 				with: #('default' 'OpenPonk-Plugins') ]
@@ -88,9 +88,7 @@ BaselineOfOpenPonk >> externalProjectsBaseline: spec [
 				postLoadDoIt: #removeGreaseWarnings ].
 	spec
 		baseline: 'Merlin'
-		with: [ spec
-				repository: 'github://hernanmd/Merlin/src';
-				loads: #(Merlin) ].
+		with: [ spec repository: 'github://hernanmd/Merlin/src' ].
 	spec
 		baseline: 'Mocketry'
 		with: [ spec repository: 'github://JanBliznicenko/Mocketry:pharo9' ].
