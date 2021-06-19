@@ -71,14 +71,10 @@ BaselineOfOpenPonk >> externalProjectsBaseline: spec [
 				repository: 'github://pharo-contributions/XML-XMLParser:3.5.x/src' ].
 	spec
 		baseline: 'XPath'
-		with:
-			[ spec repository: 'github://pharo-contributions/XML-XPath:2.2.0/src' ].
+		with: [ spec repository: 'github://pharo-contributions/XML-XPath:2.2.0/src' ].
 	spec
 		baseline: 'Roassal2'
-		with: [ spec
-				repository:
-					'github://ObjectProfile/Roassal2:614d7b80eebf6af33a777cec55ecc1c6a7a65482/src';
-				postLoadDoIt: #loadPetitParser ].
+		with: [ spec repository: 'github://ObjectProfile/Roassal2:614d7b80eebf6af33a777cec55ecc1c6a7a65482/src' ].
 	spec
 		baseline: 'Magritte'
 		with: [ spec
