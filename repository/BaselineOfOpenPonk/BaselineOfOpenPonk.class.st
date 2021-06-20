@@ -43,10 +43,11 @@ BaselineOfOpenPonk >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
-		do: [ self externalProjectsBaseline: spec.
+		do: [ 
+			self externalProjectsBaseline: spec.
 			self internalProjectsBaseline: spec.
 			spec
-				package: 'OpenPonk-Core' with: [ spec requires: #('Magritte' 'Mocketry' 'Roassal2' 'XMLParser' 'XPath' 'NeoJSON' 'Merlin' ) ];
+				package: 'OpenPonk-Core' with: [ spec requires: #('Magritte' 'Mocketry' 'Roassal2' 'XMLParser' 'XPath' 'NeoJSON') ];
 				package: 'OpenPonk-Perf';
 				package: 'OpenPonk-Trachel';
 				package: 'OpenPonk-Roassal2';
@@ -82,9 +83,6 @@ BaselineOfOpenPonk >> externalProjectsBaseline: spec [
 					'github://magritte-metamodel/magritte:49781e985875315d06c5991f094c30d6f8c9f02d/source';
 				loads: #(Core 'Magritte-Morph');
 				postLoadDoIt: #removeGreaseWarnings ].
-	spec
-		baseline: 'Merlin'
-		with: [ spec repository: 'github://hernanmd/Merlin/src' ].
 	spec
 		baseline: 'Mocketry'
 		with: [ spec repository: 'github://JanBliznicenko/Mocketry:pharo9' ].
