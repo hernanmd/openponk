@@ -75,7 +75,7 @@ BaselineOfOpenPonk >> externalProjectsBaseline: spec [
 		with: [ spec repository: 'github://pharo-contributions/XML-XPath:2.2.0/src' ].
 	spec
 		baseline: 'Roassal2'
-		with: [ spec repository: 'github://hernanmd/Roassal2/src' ].
+		with: [ spec repository: 'github://ObjectProfile/Roassal2:614d7b80eebf6af33a777cec55ecc1c6a7a65482/src' ].
 	spec
 		baseline: 'Magritte'
 		with: [ spec
