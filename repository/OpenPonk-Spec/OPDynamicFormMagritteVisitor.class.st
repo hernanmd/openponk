@@ -55,6 +55,22 @@ OPDynamicFormMagritteVisitor >> visitBooleanDescription: aBooleanDescription [
 ]
 
 { #category : #visiting }
+OPDynamicFormMagritteVisitor >> visitColorDescription: aMAColorDescription [
+
+	(form addDroplist: aMAColorDescription label)
+		items: aMAColorDescription supportedColors;
+		displayBlock: [ :each | each capitalized normalizeCamelCase ];
+		iconHolder: [ : colorSelector | Morph new color: (Color perform: colorSelector) ];
+		whenSelectedItemChanged: [ : itemSelector |
+			| style |
+			style := controller diagramElement sharedStyle.
+			style 
+				fillColor: (Color perform: itemSelector);
+				strokeColor: (Color perform: itemSelector) muchDarker.
+			controller refreshFigure ]
+]
+
+{ #category : #visiting }
 OPDynamicFormMagritteVisitor >> visitLabelDescription: aStringDescription [
 	form addLabel: aStringDescription label.
 	(form addLabel: (aStringDescription accessor read: controller)) emphasis: #()
@@ -77,6 +93,7 @@ OPDynamicFormMagritteVisitor >> visitPriorityContainer: aContainer [
 
 { #category : #visiting }
 OPDynamicFormMagritteVisitor >> visitSingleOptionDescription: aSingleOptionDescription [
+
 	(aSingleOptionDescription isExtensible
 		ifTrue: [ form addEditableDroplist: aSingleOptionDescription label ]
 		ifFalse: [ form addDroplist: aSingleOptionDescription label ])

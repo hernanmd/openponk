@@ -57,7 +57,7 @@ OPProjectBrowser class >> defaultSpec [
 
 { #category : #'world menu' }
 OPProjectBrowser class >> menuCommandOn: aBuilder [
-	<worldMenu>
+	"<worldMenu>"
 	(aBuilder item: #OpenPonk)
 		icon: OPIcons current openponkIcon;
 		action: [ self open ];

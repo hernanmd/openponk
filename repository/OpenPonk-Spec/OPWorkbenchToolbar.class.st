@@ -42,12 +42,12 @@ OPWorkbenchToolbar >> editorMenu [
 	menu := self instantiate: MenuPresenter.
 	menu
 		fromSpec:
-			(OPPragmaMenuBuilder
+			(OPPragmaPluginMenuBuilder
 				cachedPragmaKeyword: #opEditorToolbarMenu
 				model: activeEditor) menuSpec.
 	menu
 		fromSpec:
-			(OPPragmaMenuBuilder
+			(OPPragmaPluginMenuBuilder
 				cachedPragmaKeyword: #opEditorToolbarMenu:
 				model: activeEditor) menuSpec.
 	"MenuModel is stupid and will crash when provided with an empty subMenu"
